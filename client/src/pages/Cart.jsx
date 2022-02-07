@@ -173,8 +173,9 @@ const Cart = () => {
 			try {
 				const res = await userRequest.post("/checkout/payment", {
 					tokenId: stripeToken.id,
-					amout: cart.amount * 100,
-				});
+					amount: cart.total * 100,
+        });
+        console.log('-----');
 				naviguate("/success", { data: res.data });
 			} catch (error) {}
 		};
@@ -220,7 +221,6 @@ const Cart = () => {
 										<Remove />
 									</ProductAmountContainer>
 									<ProductPrice>
-										{" "}
 										${product.price * product.quantity}
 									</ProductPrice>
 								</PriceDetail>
