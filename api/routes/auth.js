@@ -13,6 +13,7 @@ router.post("/register", async (req, res) => {
 			process.env.PASS_SEC
 		).toString(),
 	});
+	console.log();
 
 	try {
 		const savedUser = await newUser.save();
@@ -49,7 +50,7 @@ router.post("/login", async (req, res) => {
 				isAdmin: user.isAdmin,
 			},
 			process.env.JWT_SEC,
-			{ expiresIn: "3d" }
+			{ expiresIn: "300d" }
 		);
 
 		const { password, ...others } = user._doc;

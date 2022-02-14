@@ -2,6 +2,7 @@ import "./widgetLg.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import { userRequest } from "../../requestMethods";
+import { format } from "timeago.js";
 
 export default function WidgetLg() {
 	const [orders, setOrders] = useState([]);
@@ -39,8 +40,8 @@ export default function WidgetLg() {
 							/>
 							<span className="widgetLgName">{order.userId}</span>
 						</td>
-						<td className="widgetLgDate">{order.createdAt}</td>
-						<td className="widgetLgAmount">{order.amount}</td>
+						<td className="widgetLgDate">{format(order.createdAt)}</td>
+						<td className="widgetLgAmount">${order.amount}</td>
 						<td className="widgetLgStatus">
 							<Button type="Approved" />
 						</td>
